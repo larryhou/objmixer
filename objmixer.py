@@ -154,7 +154,7 @@ class MeshObject(object):
             span_y[1] = max(span_y[1], p[1])
             span_z[0] = min(span_z[0], p[2])
             span_z[1] = max(span_z[1], p[2])
-        anchor = ((span_x[0] + span_z[0])/2, span_y[0], (span_x[1] + span_z[1])/2)
+        anchor = ((span_x[0] + span_x[1])/2, span_y[0], (span_z[0] + span_z[1])/2)
         print('#', span_x, span_y,span_z)
         print('#', anchor)
         for vertex in vertex_array:
