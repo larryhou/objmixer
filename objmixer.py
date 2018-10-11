@@ -200,6 +200,7 @@ if __name__ == '__main__':
     arguments.add_argument('--rotate-x', '-x', type=float, default=90)
     arguments.add_argument('--rotate-y', '-y', type=float, default=0)
     arguments.add_argument('--rotate-z', '-z', type=float, default=-90)
+    arguments.add_argument('--align', '-a', action='store_true', default=False)
     options = arguments.parse_args(sys.argv[1:])
     mesh:MeshObject = None
     for item_path in options.obj_file:
@@ -209,5 +210,5 @@ if __name__ == '__main__':
             continue
         mesh.append(item)
     mesh.rotate(angles=(options.rotate_x,options.rotate_y,options.rotate_z))
-    mesh.align()
+    if options.align: mesh.align()
     print(mesh.dump())
